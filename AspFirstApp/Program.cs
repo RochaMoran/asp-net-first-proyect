@@ -1,7 +1,18 @@
+using AspFirstApp.Models;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+string uriMysql = builder.Configuration.GetConnectionString("AspContext");
+
+builder.Services.AddDbContextPool<aspContext>(options =>
+{
+    options.UseMySql(uriMysql, ServerVersion.AutoDetect(uriMysql));
+});
 
 var app = builder.Build();
 

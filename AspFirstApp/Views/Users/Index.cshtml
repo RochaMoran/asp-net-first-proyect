@@ -1,0 +1,23 @@
+﻿@model List<User>
+<h1>Users</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Email</th>
+			<th>Phone</th>
+			<th>Age</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var user in Model){
+			<tr>
+				<td>@Html.DisplayFor(m => user.Name)</td>
+				<td>@Html.DisplayFor(m => user.Email)</td>
+				<td>@Html.DisplayFor(m => user.Phone)</td>
+				<td>@Html.DisplayFor(m => user.Age)</td>
+			</tr>
+		}
+	</tbody>
+</table>
